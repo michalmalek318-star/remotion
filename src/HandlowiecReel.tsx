@@ -11,15 +11,17 @@ import {
 
 // Rolka Hazeo: „Handlowiec, który szuka zamiast sprzedawać” (30 s, 1080x1920).
 // Podgląd bez lektora. Kolory to założenie robocze, do podmiany na barwy marki.
+// Tło #111217 = theme-color z hazeo.pl. Czerwień to przybliżenie akcentu ze strony
+// (czerwony rdzeń / smugi światła); do podmiany na dokładny hex marki.
 const C = {
-  bg: '#0B0F1A',
-  panel: '#141A2A',
-  line: '#232B40',
+  bg: '#111217',
+  panel: '#1A1B22',
+  line: '#2A2B34',
   text: '#FFFFFF',
-  muted: '#8A93A8',
-  accent: '#3DDC97',
-  red: '#FF5A5F',
-  yellow: '#FFD166',
+  muted: '#8C8E99',
+  accent: '#E5383B',
+  red: '#5A5C66',
+  yellow: '#E5383B',
 };
 const FONT = 'Inter, "DejaVu Sans", sans-serif';
 
@@ -180,7 +182,7 @@ const SceneCalendar: React.FC = () => {
   return (
     <AbsoluteFill style={{background: C.bg}}>
       <Headline>
-        Reszta: szukanie <Hl color={C.red}>firm, nazwisk, maili</Hl>
+        Reszta: szukanie <Hl>firm, nazwisk, maili</Hl>
       </Headline>
       <div style={{position: 'absolute', top: 560, left: 70, right: 70, display: 'flex', flexDirection: 'column', gap: 22}}>
         {days.map((day, i) => {
@@ -203,7 +205,7 @@ const SceneCalendar: React.FC = () => {
                     fontFamily: FONT,
                     fontSize: 38,
                     fontWeight: 700,
-                    color: C.bg,
+                    color: C.text,
                     whiteSpace: 'nowrap',
                   }}
                 >
@@ -278,7 +280,7 @@ const SceneEngine: React.FC = () => {
                 <div style={{fontSize: 36, fontWeight: 700, color: C.text}}>{l.n}</div>
                 <div style={{fontSize: 28, color: C.muted, marginTop: 4}}>{l.who}</div>
               </div>
-              <div style={{fontSize: 46, fontWeight: 800, color: sc >= 80 ? C.accent : C.yellow}}>{sc}%</div>
+              <div style={{fontSize: 46, fontWeight: 800, color: sc >= 80 ? C.accent : C.muted}}>{sc}%</div>
             </div>
           );
         })}
@@ -343,7 +345,7 @@ const SceneApprove: React.FC = () => {
             transform: `scale(${press})`,
             background: approved ? C.accent : C.panel,
             border: `3px solid ${C.accent}`,
-            color: approved ? C.bg : C.accent,
+            color: approved ? C.text : C.accent,
             fontFamily: FONT,
             fontSize: 52,
             fontWeight: 800,
@@ -416,7 +418,11 @@ const SceneCta: React.FC = () => {
   const pop = spring({frame: frame - 8, fps, config: {damping: 10}});
   return (
     <AbsoluteFill style={{background: C.bg, alignItems: 'center', fontFamily: FONT}}>
-      <div style={{position: 'absolute', top: 330, fontSize: 64, fontWeight: 800, color: C.text, letterSpacing: 6}}>HAZEO</div>
+      <div style={{position: 'absolute', top: 330, display: 'flex', alignItems: 'center', gap: 22, fontSize: 72, fontWeight: 800, color: C.text, letterSpacing: 12}}>
+        <div style={{width: 26, height: 26, borderRadius: 13, background: C.accent, boxShadow: `0 0 30px ${C.accent}`}} />
+        HAZEO
+      </div>
+      <div style={{position: 'absolute', top: 440, fontSize: 30, color: C.muted, letterSpacing: 2}}>Hazeo Engine · pozyskiwanie klientów B2B</div>
       <div style={{position: 'absolute', top: 600, fontSize: 52, fontWeight: 700, color: C.text}}>Napisz w komentarzu</div>
       <div
         style={{
@@ -424,7 +430,7 @@ const SceneCta: React.FC = () => {
           top: 720,
           transform: `scale(${pop})`,
           background: C.accent,
-          color: C.bg,
+          color: C.text,
           fontSize: 150,
           fontWeight: 900,
           padding: '20px 70px',
@@ -442,6 +448,14 @@ const SceneCta: React.FC = () => {
   );
 };
 
+// Znak słowny HAZEO w rogu (zamiennik logo do czasu dostarczenia pliku).
+const Wordmark: React.FC = () => (
+  <div style={{position: 'absolute', top: 110, left: 70, fontFamily: FONT, fontWeight: 800, fontSize: 34, letterSpacing: 8, color: C.text, display: 'flex', alignItems: 'center', gap: 14}}>
+    <div style={{width: 14, height: 14, borderRadius: 7, background: C.accent, boxShadow: `0 0 18px ${C.accent}`}} />
+    HAZEO
+  </div>
+);
+
 const SCENE_COMPONENTS = [SceneSheet, SceneCalendar, SceneEngine, SceneApprove, SceneQuote, SceneCta];
 
 export const HandlowiecReel: React.FC = () => (
@@ -454,5 +468,8 @@ export const HandlowiecReel: React.FC = () => (
         </Sequence>
       );
     })}
+    <Sequence durationInFrames={780}>
+      <Wordmark />
+    </Sequence>
   </AbsoluteFill>
 );

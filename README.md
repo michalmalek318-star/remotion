@@ -13,4 +13,4 @@ Czasy scen są w `SCENES` w `src/HandlowiecReel.tsx`. W montażu finalnym:
 - scena 3: makietę zastąpić nagraniem ekranu Hazeo Engine (6 s),
 - scena 5: planszę zastąpić nagraniem Michała do kamery (5 s),
 - dołożyć lektora (`<Audio>`) i dopasować czasy scen do długości kwestii,
-- napis HAZEO zamienić na logo, kolory w `C` na barwy marki.
+- znak słowny HAZEO zamienić na plik logo; tło #111217 jest z hazeo.pl, czerwień akcentu to przybliżenie do podmiany na dokładny hex.
