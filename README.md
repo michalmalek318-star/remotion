@@ -14,3 +14,8 @@ Czasy scen są w `SCENES` w `src/HandlowiecReel.tsx`. W montażu finalnym:
 - scena 5: planszę zastąpić nagraniem Michała do kamery (5 s),
 - dołożyć lektora (`<Audio>`) i dopasować czasy scen do długości kwestii,
 - znak słowny HAZEO zamienić na plik logo; tło #111217 jest z hazeo.pl, czerwień akcentu to przybliżenie do podmiany na dokładny hex.
+
+## Short „Hazeo Engine szuka klientów za Ciebie” (15 s)
+
+Kompozycja `EngineShort`. Tło = 3 ujęcia z Higgsfield (Cinema Studio 3.0, 5 s, 9:16, bez dźwięku),
+pliki w `public/engine/shot1.mp4`–`shot3.mp4` (poza gitem). Render: `npx remotion render EngineShort out/short.mp4`.
