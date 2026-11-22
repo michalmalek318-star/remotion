@@ -19,3 +19,14 @@ Czasy scen są w `SCENES` w `src/HandlowiecReel.tsx`. W montażu finalnym:
 
 Kompozycja `EngineShort`. Tło = 3 ujęcia z Higgsfield (Cinema Studio 3.0, 5 s, 9:16, bez dźwięku),
 pliki w `public/engine/shot1.mp4`–`shot3.mp4` (poza gitem). Render: `npx remotion render EngineShort out/short.mp4`.
+
+## Wideo LinkedIn „Która z 3 firm jest warta telefonu?” (ScoringVideo)
+
+4:5 (1080x1350), ok. 32 s, ze scoringiem 0–100 z karuzeli. Wyniki są ukryte (??) aż do odsłony, żeby widz został do końca.
+Przejścia: punch-in, zoom z rozmyciem, whip pan, maska koła, glitch, czerwona smuga światła. Dźwięki generuje `npm run sfx` (bez zewnętrznych plików).
+
+```bash
+npm run render:scoring   # out/scoring.mp4
+```
+
+Firmy i liczby są przykładowe. Prawdziwe dane klientów tylko po akceptacji.

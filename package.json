@@ -5,7 +5,9 @@
   "scripts": {
     "studio": "remotion studio",
     "render": "remotion render HandlowiecReel out/handlowiec.mp4",
-    "still": "remotion still HandlowiecReel out/okladka.png --frame=0"
+    "still": "remotion still HandlowiecReel out/okladka.png --frame=0",
+    "render:scoring": "remotion render ScoringVideo out/scoring.mp4",
+    "sfx": "python3 scripts/sfx.py public/sfx"
   },
   "dependencies": {
     "@remotion/cli": "4.0.545",
