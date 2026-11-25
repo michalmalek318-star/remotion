@@ -19,3 +19,15 @@ Czasy scen są w `SCENES` w `src/HandlowiecReel.tsx`. W montażu finalnym:
 
 Kompozycja `EngineShort`. Tło = 3 ujęcia z Higgsfield (Cinema Studio 3.0, 5 s, 9:16, bez dźwięku),
 pliki w `public/engine/shot1.mp4`–`shot3.mp4` (poza gitem). Render: `npx remotion render EngineShort out/short.mp4`.
+
+## Stories „Producent · eksport” (36 s)
+
+Kompozycja `ExportStories`: okładka z hakiem + 6 scen ze scenariusza (tekst dosłownie), cięcia na bit 120 BPM,
+błyski z ujęciem silnika na każdym cięciu, RGB-glitch i wstrząs na kluczowych słowach, licznik ceny.
+Pliki: `public/eksport/silnik.mp4` (ujęcie silnika), `public/eksport/tlo.jpg` (nocne miasto), `public/eksport/beat.wav`
+(synteza: `python3 scripts/eksport_sfx.py`, czasy cięć = `CUTS` w `src/ExportStories.tsx`).
+
+```bash
+npx remotion render ExportStories out/eksport-stories.mp4
+npx remotion still ExportStories out/okladka.png --frame=30
+```
